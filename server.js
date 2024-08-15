@@ -10,6 +10,10 @@ const connection=require('./config/connection');
 const app=express();
 // middleware
 app.use(express.json());
+
+app.use(cors({
+    origin: '*', // This sets Access-Control-Allow-Origin: *
+}));
 app.use(express.urlencoded({ extended: true }))
 app.use('/api/food',routes);
 app.use('/api/food/',registerRoutes);
